@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Research Unit -->
+  <RecipeDef ParentName="MediumMechanoidRecipe">
+    <defName>SC_Gestate_ResearchUnit</defName>
+    <label>gestate research unit</label>
+    <description>Gestate a research unit mechanoid.</description>
+    <researchPrerequisite>SC_AutonomousSystems</researchPrerequisite>
+    <recipeUsers>
+      <li>LargeMechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>150</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>6</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreRegular</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_ResearchUnit>1</SC_Mech_ResearchUnit>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_ResearchUnit</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Sentinel -->
+  <RecipeDef ParentName="HeavyMechanoidRecipe">
+    <defName>SC_Gestate_Sentinel</defName>
+    <label>gestate sentinel</label>
+    <description>Gestate a sentinel defense mechanoid.</description>
+    <researchPrerequisite>SC_AutonomousSystems</researchPrerequisite>
+    <recipeUsers>
+      <li>LargeMechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>200</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>6</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreHigh</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_Sentinel>1</SC_Mech_Sentinel>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_Sentinel</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+</Defs>

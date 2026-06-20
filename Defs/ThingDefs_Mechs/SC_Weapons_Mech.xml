@@ -53,6 +53,60 @@
         <muzzleFlashScale>6</muzzleFlashScale>
       </li>
     </verbs>
+
+  <!-- Sentinel Bullet -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>SC_Bullet_Sentinel</defName>
+    <label>sentinel repeater charge</label>
+    <graphicData>
+      <texPath>Things/Projectile/ProtoCharge_Blue</texPath> <!-- Cool blue pulse graphic -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <stoppingPower>0.8</stoppingPower>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Sentinel Weapon -->
+  <ThingDef ParentName="HeavyMechanoidGunRanged">
+    <defName>SC_Gun_Sentinel</defName>
+    <label>integrated sentinel charge repeater</label>
+    <description>A heavy, stationary defense repeating weapon built directly into the sentinel's body. Fires highly-calibrated three-round bursts of charged energy with high accuracy.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/HeavyChargeBlaster</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>12.0</Mass>
+      <AccuracyTouch>0.65</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>SC_MechGunSentinel</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SC_Bullet_Sentinel</defaultProjectile>
+        <warmupTime>1.8</warmupTime>
+        <range>36</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <soundCast>Shot_ChargeBlaster</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>8</muzzleFlashScale>
+      </li>
+    </verbs>
   </ThingDef>
 
 </Defs>

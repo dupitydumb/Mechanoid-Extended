@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================== RESEARCH UNIT ==================== -->
+  <ThingDef ParentName="BaseMechanoidWalker">
+    <defName>SC_Mech_ResearchUnit</defName>
+    <label>research unit</label>
+    <description>A medium-sized Steel Colony mechanoid designed for intellectual work. It is equipped with dedicated logic processors that allow it to perform research at research benches. (Requires C# patch for functioning skills tracker).</description>
+    <statBases>
+      <MoveSpeed>3.0</MoveSpeed>
+      <MechBandwidth>2</MechBandwidth>
+      <MarketValue>1500</MarketValue>
+    </statBases>
+    <race>
+      <body>Mech_Light</body>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.0</baseHealthScale>
+      <mechWeightClass>Medium</mechWeightClass>
+      <mechEnabledWorkTypes>
+        <li>Research</li>
+        <li>Hauling</li>
+      </mechEnabledWorkTypes>
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Fabricor_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Fabricor_Death</soundDeath>
+          <soundCall>Pawn_Mech_Fabricor_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>SC_Mech_ResearchUnit</defName>
+    <label>research unit</label>
+    <race>SC_Mech_ResearchUnit</race>
+    <isFighter>false</isFighter>
+    <combatPower>60</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Fabricor</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Fabricor</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.35</drawSize>
+          <color>(140, 180, 220)</color> <!-- Distinct teal/blue tint for science -->
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <!-- ==================== SENTINEL (STATIONARY DEFENSE) ==================== -->
+  <ThingDef ParentName="BaseMechanoidWalker">
+    <defName>SC_Mech_Sentinel</defName>
+    <label>sentinel</label>
+    <description>A heavy defense mechanoid designed to anchor to a player-designated post. While active, it will stand guard at its post, engaging all threats within weapon range, and returning to its post when threats are neutralized.</description>
+    <statBases>
+      <MoveSpeed>2.8</MoveSpeed>
+      <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.40</ArmorRating_Heat>
+      <MechBandwidth>3</MechBandwidth>
+      <MarketValue>2000</MarketValue>
+    </statBases>
+    <race>
+      <body>Mech_Light</body>
+      <baseBodySize>1.5</baseBodySize>
+      <baseHealthScale>2.5</baseHealthScale>
+      <mechWeightClass>Heavy</mechWeightClass>
+      <thinkTreeMain>SC_Sentinel</thinkTreeMain>
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Militor_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Militor_Death</soundDeath>
+          <soundCall>Pawn_Mech_Militor_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+    <comps>
+      <li Class="SteelColony.CompProperties_SentinelPost"/>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>SC_Mech_Sentinel</defName>
+    <label>sentinel</label>
+    <race>SC_Mech_Sentinel</race>
+    <isFighter>true</isFighter>
+    <combatPower>150</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Lancer</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Lancer</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.6</drawSize>
+          <color>(180, 100, 100)</color> <!-- Distinct dark red guard coloration -->
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+      <li>SC_MechGunSentinel</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!-- Custom ThinkTree for Sentinel hold-post behavior -->
+  <ThinkTreeDef>
+    <defName>SC_Sentinel</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Keep lying down if downed -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>Downed</treeDef>
+        </li>
+        <!-- Burning response -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>BurningResponse</treeDef>
+        </li>
+        <!-- Mental state -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>MentalStateCritical</treeDef>
+        </li>
+        <li Class="ThinkNode_Subtree">
+          <treeDef>MentalStateNonCritical</treeDef>
+        </li>
+        
+        <!-- Drafted -->
+        <li Class="ThinkNode_ConditionalDrafted">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToUse>DraftedOrder</tagToUse>
+              <subNodes>
+                <li Class="JobGiver_MoveToStandable"/>
+                <li Class="JobGiver_Orders"/>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <!-- Recharge / Self-maintenance -->
+        <li Class="ThinkNode_ConditionalRecharging">
+          <subNodes>
+            <li Class="JobGiver_GetEnergy_Fast"/>
+            <li Class="JobGiver_GetEnergy_Charger"/>
+          </subNodes>
+        </li>
+
+        <!-- Guard post behavior -->
+        <li Class="SteelColony.JobGiver_SentinelHoldPost"/>
+
+        <!-- Default mechanoid wandering if no post set -->
+        <li Class="JobGiver_WanderColony"/>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+</Defs>
