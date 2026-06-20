@@ -35,32 +35,68 @@ namespace SteelColony
             RemoveHediff(map);
         }
 
+        public int CalculateStoredBandwidth()
+        {
+            if (powerComp != null && !powerComp.PowerOn)
+            {
+                return 0;
+            }
+
+            Map map = this.parent.Map;
+            if (map == null) return 0;
+
+            int bandwidth = 0;
+            foreach (IntVec3 cell in this.parent.OccupiedRect())
+            {
+                List<Thing> things = cell.GetThingList(map);
+                for (int i = 0; i < things.Count; i++)
+                {
+                    Thing thing = things[i];
+                    if (thing.def.defName == "SubcoreBasic")
+                    {
+                        bandwidth += 1 * thing.stackCount;
+                    }
+                    else if (thing.def.defName == "SubcoreRegular" || thing.def.defName == "SubcoreStandard")
+                    {
+                        bandwidth += 3 * thing.stackCount;
+                    }
+                    else if (thing.def.defName == "SubcoreHigh")
+                    {
+                        bandwidth += 8 * thing.stackCount;
+                    }
+                }
+            }
+            return bandwidth;
+        }
+
         private void UpdateBandwidth()
         {
             Map map = this.parent.Map;
             if (map == null) return;
+            UpdateBandwidthForMap(map);
+        }
 
-            int bandwidth = 0;
-            if (powerComp == null || powerComp.PowerOn)
+        private void RemoveHediff(Map map)
+        {
+            if (map == null) return;
+            UpdateBandwidthForMap(map);
+        }
+
+        private void UpdateBandwidthForMap(Map map)
+        {
+            int totalBandwidth = 0;
+            var buildings = map.listerBuildings.allBuildingsColonist;
+            for (int i = 0; i < buildings.Count; i++)
             {
-                foreach (IntVec3 cell in this.parent.OccupiedRect())
+                var b = buildings[i];
+                if (b.def.defName == "SC_SubcoreBuffer")
                 {
-                    List<Thing> things = cell.GetThingList(map);
-                    for (int i = 0; i < things.Count; i++)
+                    if (!b.Spawned) continue;
+
+                    var comp = b.GetComp<Comp_SubcoreBuffer>();
+                    if (comp != null)
                     {
-                        Thing thing = things[i];
-                        if (thing.def.defName == "SubcoreBasic")
-                        {
-                            bandwidth += 1 * thing.stackCount;
-                        }
-                        else if (thing.def.defName == "SubcoreRegular" || thing.def.defName == "SubcoreStandard")
-                        {
-                            bandwidth += 3 * thing.stackCount;
-                        }
-                        else if (thing.def.defName == "SubcoreHigh")
-                        {
-                            bandwidth += 8 * thing.stackCount;
-                        }
+                        totalBandwidth += comp.CalculateStoredBandwidth();
                     }
                 }
             }
@@ -74,7 +110,7 @@ namespace SteelColony
                 if (p.Faction == Faction.OfPlayer && p.mechanitor != null)
                 {
                     mechanitor = p;
-                    break; // Apply to the first mechanitor found (typically the only one)
+                    break;
                 }
             }
 
@@ -84,43 +120,22 @@ namespace SteelColony
                 if (hediffDef != null)
                 {
                     Hediff hediff = mechanitor.health.hediffSet.GetFirstHediffOfDef(hediffDef);
-                    if (bandwidth > 0)
+                    if (totalBandwidth > 0)
                     {
                         if (hediff == null)
                         {
                             hediff = HediffMaker.MakeHediff(hediffDef, mechanitor);
-                            hediff.Severity = bandwidth;
+                            hediff.Severity = totalBandwidth;
                             mechanitor.health.AddHediff(hediff);
                         }
                         else
                         {
-                            hediff.Severity = bandwidth;
+                            hediff.Severity = totalBandwidth;
                         }
                     }
                     else if (hediff != null)
                     {
                         mechanitor.health.RemoveHediff(hediff);
-                    }
-                }
-            }
-        }
-
-        private void RemoveHediff(Map map)
-        {
-            if (map == null) return;
-            HediffDef hediffDef = DefDatabase<HediffDef>.GetNamed("SC_SubcoreBufferBandwidth", false);
-            if (hediffDef == null) return;
-
-            IReadOnlyList<Pawn> pawns = map.mapPawns.AllPawnsSpawned;
-            for (int i = 0; i < pawns.Count; i++)
-            {
-                Pawn p = pawns[i];
-                if (p.Faction == Faction.OfPlayer && p.mechanitor != null)
-                {
-                    Hediff hediff = p.health.hediffSet.GetFirstHediffOfDef(hediffDef);
-                    if (hediff != null)
-                    {
-                        p.health.RemoveHediff(hediff);
                     }
                 }
             }

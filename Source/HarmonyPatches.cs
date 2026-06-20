@@ -225,78 +225,59 @@ namespace SteelColony
         }
     }
 
-    // 10. Central Control Hub Bandwidth Bonus
+    // 10. Central Control Hub & Bandwidth Network Bonus
     [HarmonyPatch(typeof(Pawn_MechanitorTracker), "get_TotalBandwidth")]
     public static class Patch_Pawn_MechanitorTracker_TotalBandwidth
-    {
-        public static void Postfix(Pawn_MechanitorTracker __instance, ref int __result)
-        {
-            Pawn pawn = __instance.Pawn;
-            if (pawn != null && pawn.MapHeld != null)
-            {
-                var buildings = pawn.MapHeld.listerBuildings.allBuildingsColonist;
-                for (int i = 0; i < buildings.Count; i++)
-                {
-                    var b = buildings[i];
-                    if (b.def.defName == "SC_MechCentralControl")
-                    {
-                        var cc = b.GetComp<Comp_CentralControl>();
-                        if (cc != null && cc.Active)
-                        {
-                            __result += 15;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // 11. Custom Advanced Band Node Bandwidth Contribution (+5 instead of +1)
-    [HarmonyPatch(typeof(Hediff_BandNode), "get_AdditionalBandwidth")]
-    public static class Patch_Hediff_BandNode_get_AdditionalBandwidth
     {
         private static readonly MethodInfo compBandNodeStateGetter =
             AccessTools.PropertyGetter(typeof(CompBandNode), "State");
 
-        public static void Postfix(Hediff_BandNode __instance, ref int __result)
+        public static void Postfix(Pawn_MechanitorTracker __instance, ref int __result)
         {
-            Pawn mechanitor = __instance.pawn;
-            if (mechanitor == null) return;
+            Pawn pawn = __instance.Pawn;
+            if (pawn == null) return;
 
-            Map map = mechanitor.MapHeld;
+            Map map = pawn.MapHeld;
             if (map == null) return;
 
-            int totalBandwidth = 0;
+            int extraBandwidth = 0;
             var buildings = map.listerBuildings.allBuildingsColonist;
             for (int i = 0; i < buildings.Count; i++)
             {
                 var b = buildings[i];
-                var bandNode = b.GetComp<CompBandNode>();
-                if (bandNode != null && bandNode.tunedTo == mechanitor)
+                if (b.def.defName == "SC_MechCentralControl")
                 {
-                    BandNodeState state = (BandNodeState)compBandNodeStateGetter.Invoke(bandNode, null);
-                    if (state == BandNodeState.Tuned)
+                    var cc = b.GetComp<Comp_CentralControl>();
+                    if (cc != null && cc.Active)
                     {
-                        var powerComp = b.GetComp<CompPowerTrader>();
-                        if (powerComp == null || powerComp.PowerOn)
+                        extraBandwidth += 15;
+                    }
+                }
+                else
+                {
+                    var bandNode = b.GetComp<CompBandNode>();
+                    if (bandNode != null && bandNode.tunedTo == pawn)
+                    {
+                        BandNodeState state = (BandNodeState)compBandNodeStateGetter.Invoke(bandNode, null);
+                        if (state == BandNodeState.Tuned)
                         {
-                            if (b.def.defName == "SC_AdvancedBandNode")
+                            var powerComp = b.GetComp<CompPowerTrader>();
+                            if (powerComp == null || powerComp.PowerOn)
                             {
-                                totalBandwidth += 5;
-                            }
-                            else if (b.def.defName == "SC_MechControlRelay")
-                            {
-                                totalBandwidth += 10;
-                            }
-                            else
-                            {
-                                totalBandwidth += 1; // Standard vanilla band node
+                                if (b.def.defName == "SC_AdvancedBandNode")
+                                {
+                                    extraBandwidth += 4;
+                                }
+                                else if (b.def.defName == "SC_MechControlRelay")
+                                {
+                                    extraBandwidth += 9;
+                                }
                             }
                         }
                     }
                 }
             }
-            __result = totalBandwidth;
+            __result += extraBandwidth;
         }
     }
 }

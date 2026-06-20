@@ -23,18 +23,10 @@ namespace SteelColony
             Thing target = FindEnemyTarget(pawn);
             if (target != null)
             {
-                if (pawn.Position == postPos)
-                {
-                    // Shoot from post
-                    Job shootJob = JobMaker.MakeJob(JobDefOf.AttackStatic, target);
-                    shootJob.maxNumStaticAttacks = 1;
-                    return shootJob;
-                }
-                else
-                {
-                    // Move back to post to maintain sentinel defense positioning
-                    return JobMaker.MakeJob(JobDefOf.Goto, postPos);
-                }
+                // Shoot immediately from current position
+                Job shootJob = JobMaker.MakeJob(JobDefOf.AttackStatic, target);
+                shootJob.maxNumStaticAttacks = 1;
+                return shootJob;
             }
 
             // 2. Return to post if away

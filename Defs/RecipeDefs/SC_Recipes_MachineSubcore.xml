@@ -56,4 +56,77 @@
     <researchPrerequisite>SC_SpecialistMechs</researchPrerequisite>
   </RecipeDef>
 
+  <RecipeDef>
+    <defName>SC_Make_SubcoreHigh_Machined</defName>
+    <label>assemble high subcore (machined)</label>
+    <description>Assemble a high-tier subcore at a machining table using advanced materials, bypassing the need for a human brain rip-scan. This alternative method has a very high material cost but requires no human subjects.</description>
+    <jobString>Assembling high subcore.</jobString>
+    <workAmount>24000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>300</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>80</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreRegular</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+        <li>Plasteel</li>
+        <li>Gold</li>
+        <li>ComponentSpacer</li>
+        <li>SubcoreRegular</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <SubcoreHigh>1</SubcoreHigh>
+    </products>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
+    <researchPrerequisite>SC_AutonomousSystems</researchPrerequisite>
+  </RecipeDef>
+
 </Defs>
