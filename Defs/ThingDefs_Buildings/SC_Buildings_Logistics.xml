@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>SC_LogisticsTerminal</defName>
+    <label>mechnet logistics terminal</label>
+    <description>An automated trade and logistical coordination depot. When powered, it functions as a localized storage zone for manufactured goods and raw commodities. Stored items can be launched directly into orbit for immediate sale using the mechnet's Intellectual processing core to trade logically. It also coordinates off-map labor leasing contracts, housing designated helper mechs in its internal berths.</description>
+    <thingClass>SteelColony.Building_LogisticsTerminal</thingClass>
+    <tickerType>Normal</tickerType>
+    <rotatable>true</rotatable>
+    <canOverlapZones>false</canOverlapZones>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <fillPercent>0.7</fillPercent>
+    <graphicData>
+      <texPath>Things/Building/Misc/BandNode</texPath> <!-- Reuses band node graphic base for visual consistency -->
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <color>(210, 180, 140)</color> <!-- Gold/amber bronze color scheme -->
+      <shadowData>
+        <volume>(2.5, 0.5, 2.5)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <building>
+      <preventDeteriorationOnShelf>true</preventDeteriorationOnShelf>
+      <fixedStorageSettings>
+        <filter>
+          <categories>
+            <li>ResourcesRaw</li>
+            <li>FoodRaw</li>
+            <li>Manufactured</li>
+            <li>Drugs</li>
+            <li>Items</li>
+          </categories>
+          <disallowedCategories>
+            <li>Corpses</li>
+            <li>Weapons</li>
+            <li>Apparel</li>
+            <li>Chunks</li>
+          </disallowedCategories>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>ResourcesRaw</li>
+            <li>FoodRaw</li>
+            <li>Manufactured</li>
+            <li>Drugs</li>
+            <li>Items</li>
+          </categories>
+          <disallowedCategories>
+            <li>Corpses</li>
+            <li>Weapons</li>
+            <li>Apparel</li>
+            <li>Chunks</li>
+          </disallowedCategories>
+        </filter>
+      </defaultStorageSettings>
+      <ai_chillDestination>false</ai_chillDestination>
+      <buildingTags>
+        <li>Biotech</li>
+      </buildingTags>
+    </building>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <designationCategory>Biotech</designationCategory>
+    <uiOrder>2446</uiOrder>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <WorkToBuild>20000</WorkToBuild>
+      <Mass>80</Mass>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <size>(3,3)</size>
+    <costList>
+      <Steel>250</Steel>
+      <Plasteel>50</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <researchPrerequisites>
+      <li>SC_SpecialistMechs</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+  </ThingDef>
+
+</Defs>
