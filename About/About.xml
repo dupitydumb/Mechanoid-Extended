@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Steel Colony — Extended Mechs</name>
+  <author>avkov</author>
+  <packageId>avkov.steelcolony</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>
+    A complete mechanoid colony experience. Command a fully self-sufficient army of specialized
+    mechs covering every colony need.
+
+    Requires: Biotech DLC
+  </description>
+
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld.Biotech</packageId>
+      <displayName>Biotech</displayName>
+    </li>
+  </modDependencies>
+
+  <!-- Load after these so our bandwidth buildings can coexist cleanly -->
+  <loadAfter>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>sarg.alphamechs</li>
+  </loadAfter>
+
+  <!-- Load before Colony Manager so our work type patches fire first -->
+  <loadBefore>
+    <li>FluffyFurball.ColonyManager</li>
+  </loadBefore>
+
+  <incompatibleWith />
+</ModMetaData>

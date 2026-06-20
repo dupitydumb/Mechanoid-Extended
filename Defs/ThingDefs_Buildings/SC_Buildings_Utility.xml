@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================== SUPERCHARGER STATION ==================== -->
+  <ThingDef ParentName="BaseMechCharger">
+    <defName>SC_SuperchargerStation</defName>
+    <label>supercharger station</label>
+    <description>An advanced, high-voltage induction charging station for light mechanoids. Recharges docked mechanoids at double the rate (200% speed) of a vanilla charger, but draws more power and produces wastepacks slightly faster.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/BasicRecharger</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.9,1.25)</drawSize>
+      <color>(140, 200, 160)</color> <!-- Distinct green tinted accents -->
+      <shadowData>
+        <volume>(2.9, 0.5, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Mass>35</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Light</li>
+      </requiredMechWeightClasses>
+    </building>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Plasteel>10</Plasteel>
+    </costList>
+    <researchPrerequisites>
+      <li>SC_BasicMechExpansion</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>5</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>600</basePowerConsumption> <!-- High power draw -->
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <!-- ==================== MECHNET BROADCAST BEACON ==================== -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>SC_MechnetBeacon</defName>
+    <label>mechnet broadcast beacon</label>
+    <description>A localized high-frequency mechnet optimization beacon. When powered, it broadcasts calibration signals in a 12-tile radius, applying a Mechnet Boost (+15% work speed, +10% move speed, +10% shooting accuracy) to all friendly mechanoids in its area.</description>
+    <tickerType>Rare</tickerType>
+    <rotatable>false</rotatable>
+    <canOverlapZones>false</canOverlapZones>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <fillPercent>0.4</fillPercent>
+    <graphicData>
+      <texPath>Things/Building/Misc/BandNode</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <color>(190, 160, 220)</color> <!-- Distinct purple/magenta tint -->
+      <shadowData>
+        <volume>(1.5, 0.35, 1.2)</volume>
+        <offset>(0, 0, -0.15)</offset>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <buildingTags>
+        <li>Biotech</li>
+      </buildingTags>
+    </building>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <designationCategory>Biotech</designationCategory>
+    <uiOrder>2443</uiOrder>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>10000</WorkToBuild>
+      <Mass>30</Mass>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>15</Plasteel>
+    </costList>
+    <researchPrerequisites>
+      <li>SC_SpecialistMechs</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>400</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="SteelColony.CompProperties_MechnetBeacon">
+        <radius>12</radius>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <!-- ==================== AUTO-REPAIR PAD ==================== -->
+  <ThingDef ParentName="BaseMechCharger">
+    <defName>SC_AutoRepairPad</defName>
+    <label>auto-repair charger</label>
+    <description>An advanced light mechanoid charging pad equipped with automated nanite repair gantries. While a mechanoid is actively charging, the station automatically repairs its physical structural damage over time.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/BasicRecharger</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2.9,1.25)</drawSize>
+      <color>(220, 150, 100)</color> <!-- Distinct orange/rust tint -->
+      <shadowData>
+        <volume>(2.9, 0.5, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>15000</WorkToBuild>
+      <Mass>40</Mass>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Light</li>
+      </requiredMechWeightClasses>
+    </building>
+    <costList>
+      <Steel>250</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Plasteel>15</Plasteel>
+    </costList>
+    <researchPrerequisites>
+      <li>SC_SpecialistMechs</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>5</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>400</basePowerConsumption>
+      </li>
+      <li Class="SteelColony.CompProperties_AutoRepairGantry">
+        <healAmount>2</healAmount>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <!-- ==================== SUBCORE BUFFER RACK ==================== -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>SC_SubcoreBuffer</defName>
+    <label>subcore buffer rack</label>
+    <description>A specialized high-tech server rack designed to house active mechanoid subcores. By slotting in completed subcores, they are integrated directly into the colony's mechnet, generating bandwidth (+1 for Basic, +3 for Standard/Regular, +8 for High subcores stored). Requires power to maintain connections.</description>
+    <thingClass>Building_Storage</thingClass>
+    <tickerType>Rare</tickerType>
+    <rotatable>true</rotatable>
+    <canOverlapZones>false</canOverlapZones>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <fillPercent>0.5</fillPercent>
+    <graphicData>
+      <texPath>Things/Building/Misc/BandNode</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,2)</drawSize>
+      <color>(150, 170, 190)</color> <!-- Slate-blue server rack color -->
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <building>
+      <preventDeteriorationOnShelf>true</preventDeteriorationOnShelf>
+      <fixedStorageSettings>
+        <filter>
+          <categories Inherit="false" />
+          <thingDefs>
+            <li>SubcoreBasic</li>
+            <li>SubcoreRegular</li>
+            <li>SubcoreStandard</li>
+            <li>SubcoreHigh</li>
+          </thingDefs>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories Inherit="false" />
+          <thingDefs>
+            <li>SubcoreBasic</li>
+            <li>SubcoreRegular</li>
+            <li>SubcoreStandard</li>
+            <li>SubcoreHigh</li>
+          </thingDefs>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <designationCategory>Biotech</designationCategory>
+    <uiOrder>2444</uiOrder>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Mass>35</Mass>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <size>(1,2)</size>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Plasteel>10</Plasteel>
+    </costList>
+    <researchPrerequisites>
+      <li>SC_SpecialistMechs</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="SteelColony.CompProperties_SubcoreBuffer" />
+    </comps>
+  </ThingDef>
+
+</Defs>

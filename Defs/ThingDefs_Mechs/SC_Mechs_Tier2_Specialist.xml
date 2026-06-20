@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================== MEDIC UNIT ==================== -->
+  <ThingDef ParentName="BaseMechanoidWalker">
+    <defName>SC_Mech_MedicUnit</defName>
+    <label>medic unit</label>
+    <description>A medium-sized mechanoid designed for medical care and hauling. It features advanced diagnostic subroutines, granting superior medical tend quality and tend speed.</description>
+    <statBases>
+      <MoveSpeed>3.8</MoveSpeed>
+      <MedicalTendQuality>0.80</MedicalTendQuality>
+      <MedicalTendSpeed>1.20</MedicalTendSpeed>
+      <MechBandwidth>2</MechBandwidth>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <race>
+      <body>Mech_Light</body>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.2</baseHealthScale>
+      <mechWeightClass>Medium</mechWeightClass>
+      <mechEnabledWorkTypes>
+        <li>Doctor</li>
+        <li>Hauling</li>
+      </mechEnabledWorkTypes>
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Paramedic_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Paramedic_Death</soundDeath>
+          <soundCall>Pawn_Mech_Paramedic_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>SC_Mech_MedicUnit</defName>
+    <label>medic unit</label>
+    <race>SC_Mech_MedicUnit</race>
+    <isFighter>false</isFighter>
+    <combatPower>60</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Paramedic</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Paramedic</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.4</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <!-- ==================== FABRICATOR UNIT ==================== -->
+  <ThingDef ParentName="BaseMechanoidWalker">
+    <defName>SC_Mech_FabricatorUnit</defName>
+    <label>fabricator unit</label>
+    <description>A medium-sized mechanoid designed for advanced fabrication, tailoring, smithing, and cooking. It is equipped with micro-tool actuators that boost overall work speed.</description>
+    <statBases>
+      <MoveSpeed>3.4</MoveSpeed>
+      <WorkSpeedGlobal>1.10</WorkSpeedGlobal>
+      <FoodPoisonChance>0.001</FoodPoisonChance>
+      <MechBandwidth>2</MechBandwidth>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <race>
+      <body>Mech_Light</body>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.2</baseHealthScale>
+      <mechWeightClass>Medium</mechWeightClass>
+      <mechEnabledWorkTypes>
+        <li>Crafting</li>
+        <li>Smithing</li>
+        <li>Tailoring</li>
+        <li>Cooking</li>
+        <li>Hauling</li>
+      </mechEnabledWorkTypes>
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Fabricor_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Fabricor_Death</soundDeath>
+          <soundCall>Pawn_Mech_Fabricor_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>SC_Mech_FabricatorUnit</defName>
+    <label>fabricator unit</label>
+    <race>SC_Mech_FabricatorUnit</race>
+    <isFighter>false</isFighter>
+    <combatPower>60</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Fabricor</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Fabricor</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.4</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <!-- ==================== ANIMAL HANDLER ==================== -->
+  <ThingDef ParentName="BaseMechanoidWalker">
+    <defName>SC_Mech_AnimalHandler</defName>
+    <label>animal handler</label>
+    <description>A medium-sized mechanoid designed for animal handling and hauling, equipped with pacifying pheromone emitters and audio modulators.</description>
+    <statBases>
+      <MoveSpeed>3.6</MoveSpeed>
+      <MechBandwidth>2</MechBandwidth>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <race>
+      <body>Mech_Light</body>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.2</baseHealthScale>
+      <mechWeightClass>Medium</mechWeightClass>
+      <mechEnabledWorkTypes>
+        <li>Handling</li>
+        <li>Hauling</li>
+      </mechEnabledWorkTypes>
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Agrihand_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Agrihand_Death</soundDeath>
+          <soundCall>Pawn_Mech_Agrihand_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>SC_Mech_AnimalHandler</defName>
+    <label>animal handler</label>
+    <race>SC_Mech_AnimalHandler</race>
+    <isFighter>false</isFighter>
+    <combatPower>60</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Agrihand</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Agrihand</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.4</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

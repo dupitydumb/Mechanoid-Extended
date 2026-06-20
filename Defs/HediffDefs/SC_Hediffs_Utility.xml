@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Mechnet Broadcast Beacon Buff -->
+  <HediffDef>
+    <defName>SC_MechnetBoost</defName>
+    <label>mechnet boost</label>
+    <description>This mechanoid is receiving localized optimization signals from a Mechnet Broadcast Beacon, boosting its work speed, movement, and combat capabilities.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.5, 0.9, 0.5)</defaultLabelColor>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>400</disappearsAfterTicks> <!-- Cleans up automatically in ~6.6 seconds if beacon is off or moved -->
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+          <MoveSpeed>0.35</MoveSpeed>
+          <ShootingAccuracyPawn>1.0</ShootingAccuracyPawn>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Subcore Buffer Bandwidth Buff -->
+  <HediffDef>
+    <defName>SC_SubcoreBufferBandwidth</defName>
+    <label>subcore buffer bandwidth</label>
+    <description>This mechanitor is connected to active subcore buffer racks, gaining flat bandwidth. Bandwidth capacity scales directly with the number and quality of subcores stored in the racks.</description>
+    <hediffClass>Hediff</hediffClass>
+    <defaultLabelColor>(0.6, 0.8, 1.0)</defaultLabelColor>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <multiplyStatChangesBySeverity>true</multiplyStatChangesBySeverity>
+        <statOffsets>
+          <MechBandwidth>1</MechBandwidth>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

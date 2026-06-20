@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Basic Mech Expansion -->
+  <ResearchProjectDef ParentName="MechtechBase">
+    <defName>SC_BasicMechExpansion</defName>
+    <label>basic mech expansion</label>
+    <description>Allows the gestation of basic Steel Colony utility mechanoids and the construction of advanced band nodes.</description>
+    <baseCost>1200</baseCost>
+    <researchViewX>10.00</researchViewX>
+    <researchViewY>4.80</researchViewY>
+    <prerequisites>
+      <li>BasicMechtech</li>
+    </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->basic steel colony mechanoids</li>
+        <li>subject_gerund->gestating basic colony support mechanoids</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <!-- Specialist Mechs -->
+  <ResearchProjectDef ParentName="MechtechBase">
+    <defName>SC_SpecialistMechs</defName>
+    <label>specialist mechs</label>
+    <description>Allows the gestation of specialist Steel Colony mechanoids, the construction of control relays, the machining of regular subcores, and advanced bandwidth infrastructure.</description>
+    <baseCost>2000</baseCost>
+    <researchViewX>12.00</researchViewX>
+    <researchViewY>4.80</researchViewY>
+    <prerequisites>
+      <li>StandardMechtech</li>
+    </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->specialist steel colony mechanoids</li>
+        <li>subject_gerund->gestating specialist colony mechanoids</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <!-- Autonomous Systems -->
+  <ResearchProjectDef ParentName="MechtechBase">
+    <defName>SC_AutonomousSystems</defName>
+    <label>autonomous systems</label>
+    <description>Allows for the gestation of high-tier self-regulating mechanoids and more advanced systems integration.</description>
+    <baseCost>3500</baseCost>
+    <researchViewX>16.00</researchViewX>
+    <researchViewY>4.80</researchViewY>
+    <prerequisites>
+      <li>HighMechtech</li>
+    </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->autonomous steel colony mechanoids</li>
+        <li>subject_gerund->gestating high-tier autonomous mechanoids</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <!-- Distributed Overseer -->
+  <ResearchProjectDef ParentName="MechtechBase">
+    <defName>SC_DistributedOverseer</defName>
+    <label>distributed overseer</label>
+    <description>Enables the ultimate centralized coordination network, maximizing bandwidth capabilities and local mechnet efficiency.</description>
+    <baseCost>5000</baseCost>
+    <researchViewX>17.50</researchViewX>
+    <researchViewY>4.80</researchViewY>
+    <prerequisites>
+      <li>SC_AutonomousSystems</li>
+    </prerequisites>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->distributed overseer networks</li>
+        <li>subject_gerund->establishing distributed overseer networks</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+</Defs>

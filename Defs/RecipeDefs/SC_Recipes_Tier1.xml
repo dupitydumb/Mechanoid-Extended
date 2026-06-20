@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Mining Drone -->
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>SC_Gestate_MiningDrone</defName>
+    <label>gestate mining drone</label>
+    <description>Gestate a mining drone mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_MiningDrone>1</SC_Mech_MiningDrone>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_MiningDrone</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Cook Unit -->
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>SC_Gestate_CookUnit</defName>
+    <label>gestate cook unit</label>
+    <description>Gestate a cook unit mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>60</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_CookUnit>1</SC_Mech_CookUnit>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_CookUnit</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Firefighter Unit -->
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>SC_Gestate_FirefighterUnit</defName>
+    <label>gestate firefighter unit</label>
+    <description>Gestate a firefighter unit mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>60</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_FirefighterUnit>1</SC_Mech_FirefighterUnit>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_FirefighterUnit</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Warden Unit -->
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>SC_Gestate_WardenUnit</defName>
+    <label>gestate warden unit</label>
+    <description>Gestate a warden unit mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>60</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_WardenUnit>1</SC_Mech_WardenUnit>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_WardenUnit</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Repair Drone -->
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>SC_Gestate_RepairDrone</defName>
+    <label>gestate repair drone</label>
+    <description>Gestate a repair drone mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>65</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_RepairDrone>1</SC_Mech_RepairDrone>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_RepairDrone</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Hauler Mk2 — medium weight, goes in standard gestator with BasicMechExpansion unlock -->
+  <RecipeDef ParentName="MediumMechanoidRecipe">
+    <defName>SC_Gestate_HaulerMkII</defName>
+    <label>gestate hauler mk2</label>
+    <description>Gestate a hauler mk2 mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>80</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_HaulerMkII>1</SC_Mech_HaulerMkII>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_HaulerMkII</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Refinery Refueler -->
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>SC_Gestate_Refueler</defName>
+    <label>gestate refinery refueler</label>
+    <description>Gestate a refinery refueler mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>65</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_Refueler>1</SC_Mech_Refueler>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_Refueler</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Marksman Drone -->
+  <RecipeDef ParentName="LightMechanoidRecipe">
+    <defName>SC_Gestate_Marksman</defName>
+    <label>gestate marksman drone</label>
+    <description>Gestate a marksman drone mechanoid.</description>
+    <researchPrerequisite>SC_BasicMechExpansion</researchPrerequisite>
+    <recipeUsers>
+      <li>MechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>60</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreBasic</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_Marksman>1</SC_Mech_Marksman>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_Marksman</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+</Defs>

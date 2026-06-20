@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Medic Unit -->
+  <RecipeDef ParentName="MediumMechanoidRecipe">
+    <defName>SC_Gestate_MedicUnit</defName>
+    <label>gestate medic unit</label>
+    <description>Gestate a medic unit mechanoid.</description>
+    <researchPrerequisite>SC_SpecialistMechs</researchPrerequisite>
+    <recipeUsers>
+      <li>LargeMechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreRegular</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_MedicUnit>1</SC_Mech_MedicUnit>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_MedicUnit</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Fabricator Unit -->
+  <RecipeDef ParentName="MediumMechanoidRecipe">
+    <defName>SC_Gestate_FabricatorUnit</defName>
+    <label>gestate fabricor unit</label>
+    <description>Gestate a fabricator unit mechanoid.</description>
+    <researchPrerequisite>SC_SpecialistMechs</researchPrerequisite>
+    <recipeUsers>
+      <li>LargeMechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>120</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreRegular</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_FabricatorUnit>1</SC_Mech_FabricatorUnit>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_FabricatorUnit</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+  <!-- Animal Handler -->
+  <RecipeDef ParentName="MediumMechanoidRecipe">
+    <defName>SC_Gestate_AnimalHandler</defName>
+    <label>gestate animal handler</label>
+    <description>Gestate an animal handler mechanoid.</description>
+    <researchPrerequisite>SC_SpecialistMechs</researchPrerequisite>
+    <recipeUsers>
+      <li>LargeMechGestator</li>
+    </recipeUsers>
+    <ingredients Inherit="False">
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SubcoreRegular</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <SC_Mech_AnimalHandler>1</SC_Mech_AnimalHandler>
+    </products>
+    <descriptionHyperlinks>
+      <ThingDef>SC_Mech_AnimalHandler</ThingDef>
+    </descriptionHyperlinks>
+  </RecipeDef>
+
+</Defs>

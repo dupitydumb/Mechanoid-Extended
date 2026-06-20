@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Combat Extended</li>
+      <li>CombatExtended</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+
+        <!-- Light mechs armor stats -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="SC_Mech_MiningDrone" or defName="SC_Mech_CookUnit" or defName="SC_Mech_FirefighterUnit" or defName="SC_Mech_WardenUnit" or defName="SC_Mech_RepairDrone"]/statBases</xpath>
+          <value>
+            <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.30</ArmorRating_Heat>
+          </value>
+        </li>
+
+        <!-- Medium mechs armor stats -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="SC_Mech_HaulerMkII" or defName="SC_Mech_MedicUnit" or defName="SC_Mech_FabricatorUnit" or defName="SC_Mech_AnimalHandler"]/statBases</xpath>
+          <value>
+            <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.40</ArmorRating_Heat>
+          </value>
+        </li>
+
+      </operations>
+    </match>
+  </Operation>
+</Patch>

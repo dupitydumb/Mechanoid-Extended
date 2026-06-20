@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Projectile -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>SC_Bullet_Marksman</defName>
+    <label>marksman bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+      <armorPenetrationBase>0.18</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Weapon -->
+  <ThingDef ParentName="LightMechanoidGunRanged">
+    <defName>SC_Gun_Marksman</defName>
+    <label>integrated marksman rifle</label>
+    <description>A light, long-range rifle built directly into a combat mechanoid's chassis. Fires slow, high-velocity single rounds from long range.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/Slugthrower</texPath> <!-- Placeholder graphic using Slugthrower texture -->
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+      <Mass>2.0</Mass>
+      <AccuracyTouch>0.30</AccuracyTouch>
+      <AccuracyShort>0.55</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>SC_MechGunMarksman</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>SC_Bullet_Marksman</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <range>32</range>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Shot_BoltAction</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>6</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+</Defs>

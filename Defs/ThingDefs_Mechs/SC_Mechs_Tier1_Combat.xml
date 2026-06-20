@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ==================== MARKSMAN DRONE ==================== -->
+  <ThingDef ParentName="LightMechanoid">
+    <defName>SC_Mech_Marksman</defName>
+    <label>marksman drone</label>
+    <description>A light, fragile combat mechanoid designed for long-range target acquisition and sniper support. Armed with an integrated light marksman rifle, it is designed to keep distance and kite targets, but will easily collapse under direct fire.</description>
+    <statBases>
+      <MoveSpeed>3.8</MoveSpeed>
+      <MechBandwidth>1</MechBandwidth>
+      <MarketValue>800</MarketValue>
+    </statBases>
+    <race>
+      <baseHealthScale>0.7</baseHealthScale> <!-- Fragile, easy to destroy -->
+      <lifeStageAges Inherit="False">
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Militor_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Militor_Death</soundDeath>
+          <soundCall>Pawn_Mech_Militor_Call</soundCall>
+        </li>
+      </lifeStageAges>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="LightMechanoidKind">
+    <defName>SC_Mech_Marksman</defName>
+    <label>marksman drone</label>
+    <race>SC_Mech_Marksman</race>
+    <combatPower>50</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Militor</texPath>
+          <maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Slugger</maskPath>
+          <shaderType>CutoutWithOverlay</shaderType>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.1</drawSize> <!-- Slightly smaller than Militor -->
+          <color>(160, 180, 200)</color> <!-- Distinct metallic-blue hue -->
+          <shadowData>
+            <volume>(0.25, 0.35, 0.25)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponTags>
+      <li>SC_MechGunMarksman</li>
+    </weaponTags>
+  </PawnKindDef>
+
+</Defs>
