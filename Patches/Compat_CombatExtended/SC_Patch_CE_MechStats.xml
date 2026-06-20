@@ -20,7 +20,7 @@
 
         <!-- Medium mechs armor stats -->
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="SC_Mech_HaulerMkII" or defName="SC_Mech_MedicUnit" or defName="SC_Mech_FabricatorUnit" or defName="SC_Mech_AnimalHandler"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="SC_Mech_HaulerMkII" or defName="SC_Mech_AnimalHandler"]/statBases</xpath>
           <value>
             <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
             <ArmorRating_Blunt>0.35</ArmorRating_Blunt>

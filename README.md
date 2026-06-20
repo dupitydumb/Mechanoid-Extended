@@ -18,8 +18,6 @@ A complete mechanoid colony experience for RimWorld. Command a fully self-suffic
 *   **Refinery Refueler** (`SC_Mech_Refueler`): Speeds up bulk production (cutting stone, refining chemfuel, smelting) and manages fuel levels.
 
 #### Tier 2 — Specialist Labor (Standard Subcore, Large Gestator)
-*   **Medic Unit** (`SC_Mech_MedicUnit`): Precision surgical and healing chassis. Tends wounds and illness efficiently with high doctoring speed.
-*   **Fabricator Unit** (`SC_Mech_FabricatorUnit`): Multi-arm production chassis that can operate any crafting, smithing, or tailoring station.
 *   **Animal Handler** (`SC_Mech_AnimalHandler`): Zoological management unit. Feeds, trains, and tames wild animals utilizing pacifying pheromone emitters.
 
 #### Tier 3 — Advanced Systems (High Subcore, Large Gestator)
@@ -32,14 +30,14 @@ A complete mechanoid colony experience for RimWorld. Command a fully self-suffic
 
 *   **Advanced Band Node** (`SC_AdvancedBandNode`): High-gain signal amplifier providing +5 bandwidth to its tuned mechanitor.
 *   **Control Relay Tower** (`SC_MechControlRelay`): Expands bandwidth by +10. When powered, it extends the mechanitor's command range map-wide (suppressing the command radius indicator).
-*   **Subcore Buffer Rack** (`SC_SubcoreBuffer`): High-tech server rack that integrates active subcores directly into the mechnet, generating bandwidth (+1 for Basic, +3 for Regular, +8 for High subcores stored).
+*   **Subcore Buffer Rack** (`SC_SubcoreBuffer`): High-tech server rack that integrates active subcores directly into the mechnet, generating bandwidth (+1 for Basic, +2 for Regular, +4 for High subcores stored).
 *   **Central Control Hub** (`SC_MechCentralControl`): Endgame 4x4 console array (+15 bandwidth). Once active and powered, it broadcasts control synchronization protocols, allowing your mechs to operate fully autonomously across the map without requiring a human overseer (feral-proof, map-wide operation).
 
 ---
 
 ### 3. Machined Subcores (Solo-Run Mechanics)
 To support the "zero-human" endgame progression, standard Biotech brain scanners are bypassable:
-*   **Machined Regular Subcore**: Assemble regular subcores at a machining table using advanced materials (150 Steel, 20 Plasteel, 4 Components). Requires `Specialist Mechs` research.
+*   **Machined Regular Subcore**: Assemble regular subcores at a machining table using advanced materials (250 Steel, 50 Plasteel, 6 Components). Requires `Specialist Mechs` research.
 
 ---
 

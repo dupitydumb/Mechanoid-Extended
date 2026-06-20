@@ -60,8 +60,8 @@ namespace SteelColony
 
                 case "Medical":
                     title = "Plague Relief Support";
-                    requiredMechs.Add("SC_Mech_MedicUnit");
-                    description = "An Outlander community is suffering from a toxic plague. They require 1 Medic Unit to assist their local doctors.";
+                    requiredMechs.Add("Paramedic");
+                    description = "An Outlander community is suffering from a toxic plague. They require 1 Paramedic mechanoid to assist their local doctors.";
                     rewardValue = Rand.Range(800, 1200);
                     break;
 

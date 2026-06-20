@@ -21,7 +21,7 @@
             <li>Steel</li>
           </thingDefs>
         </filter>
-        <count>150</count>
+        <count>250</count>
       </li>
       <li>
         <filter>
@@ -29,7 +29,7 @@
             <li>Plasteel</li>
           </thingDefs>
         </filter>
-        <count>20</count>
+        <count>50</count>
       </li>
       <li>
         <filter>
@@ -37,7 +37,7 @@
             <li>ComponentIndustrial</li>
           </thingDefs>
         </filter>
-        <count>4</count>
+        <count>6</count>
       </li>
     </ingredients>
     <fixedIngredientFilter>
@@ -76,7 +76,7 @@
             <li>Steel</li>
           </thingDefs>
         </filter>
-        <count>300</count>
+        <count>500</count>
       </li>
       <li>
         <filter>
@@ -84,7 +84,7 @@
             <li>Plasteel</li>
           </thingDefs>
         </filter>
-        <count>80</count>
+        <count>150</count>
       </li>
       <li>
         <filter>
@@ -92,7 +92,7 @@
             <li>Gold</li>
           </thingDefs>
         </filter>
-        <count>5</count>
+        <count>20</count>
       </li>
       <li>
         <filter>
@@ -100,7 +100,7 @@
             <li>ComponentSpacer</li>
           </thingDefs>
         </filter>
-        <count>2</count>
+        <count>4</count>
       </li>
       <li>
         <filter>

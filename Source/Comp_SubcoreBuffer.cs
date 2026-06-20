@@ -58,11 +58,11 @@ namespace SteelColony
                     }
                     else if (thing.def.defName == "SubcoreRegular" || thing.def.defName == "SubcoreStandard")
                     {
-                        bandwidth += 3 * thing.stackCount;
+                        bandwidth += 2 * thing.stackCount;
                     }
                     else if (thing.def.defName == "SubcoreHigh")
                     {
-                        bandwidth += 8 * thing.stackCount;
+                        bandwidth += 4 * thing.stackCount;
                     }
                 }
             }

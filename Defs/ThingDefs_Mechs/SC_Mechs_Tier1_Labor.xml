@@ -234,7 +234,7 @@
     <statBases>
       <MoveSpeed>3.8</MoveSpeed>
       <CarryingCapacity>150</CarryingCapacity>
-      <MechBandwidth>1</MechBandwidth>
+      <MechBandwidth>2</MechBandwidth>
       <MarketValue>1000</MarketValue>
     </statBases>
     <race>

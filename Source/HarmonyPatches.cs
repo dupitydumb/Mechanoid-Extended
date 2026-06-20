@@ -84,14 +84,6 @@ namespace SteelColony
             {
                 __result = 4;
             }
-            else if (defName == "SC_Mech_MedicUnit" && __instance.def == SkillDefOf.Medicine)
-            {
-                __result = 8;
-            }
-            else if (defName == "SC_Mech_FabricatorUnit" && __instance.def == SkillDefOf.Crafting)
-            {
-                __result = 7;
-            }
             else if (defName == "SC_Mech_AnimalHandler" && __instance.def == SkillDefOf.Animals)
             {
                 __result = 5;
